@@ -4,6 +4,7 @@ service vendor.health-gs201 /vendor/bin/hw/android.hardware.health-service.gs201
     group system
     capabilities WAKE_ALARM BLOCK_SUSPEND
     file /dev/kmsg w
+    task_profiles ProcessCapacityLow
 
 service vendor.charger /vendor/bin/hw/android.hardware.health-service.gs201 --charger
     class charger
@@ -15,3 +16,4 @@ service vendor.charger /vendor/bin/hw/android.hardware.health-service.gs201 --ch
     file /sys/fs/pstore/console-ramoops-0 r
     file /sys/fs/pstore/console-ramoops r
     file /proc/last_kmsg r
+    task_profiles ProcessCapacityLow
