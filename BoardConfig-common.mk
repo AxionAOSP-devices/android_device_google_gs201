@@ -43,7 +43,6 @@ BOARD_KERNEL_CMDLINE += \
     cgroup_disable=memory \
     rcupdate.rcu_expedited=1 \
     rcu_nocbs=all \
-    rcutree.enable_rcu_lazy \
     stack_depot_disable=off \
     page_pinner=on \
     swiotlb=1024 \
