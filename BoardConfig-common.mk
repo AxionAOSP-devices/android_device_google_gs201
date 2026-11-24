@@ -253,6 +253,9 @@ ifndef BOARD_VENDOR_KERNEL_MODULES_LOAD
 $(error vendor_dlkm.modules.load not found or empty)
 endif
 
+BOARD_SYSTEM_KERNEL_MODULES_LOAD := $(strip $(shell cat $(KERNEL_MODULE_DIR)/system_dlkm.modules.load 2>/dev/null))
+BOARD_SYSTEM_KERNEL_MODULES := $(addprefix $(KERNEL_MODULE_DIR)/, $(notdir $(BOARD_SYSTEM_KERNEL_MODULES_LOAD)))
+
 # staging kernels might have modules split between system/vendor_dlkm. If
 # the target defined modules on the system_dlkm image, honor the split.
 # Otherwise, assume all modules are stored on the vendor_dlkm image.
@@ -261,9 +264,6 @@ BOARD_VENDOR_KERNEL_MODULES := $(addprefix $(KERNEL_MODULE_DIR)/, $(notdir $(BOA
 else
 BOARD_VENDOR_KERNEL_MODULES := $(KERNEL_MODULES)
 endif
-
-BOARD_SYSTEM_KERNEL_MODULES_LOAD := $(strip $(shell cat $(KERNEL_MODULE_DIR)/system_dlkm.modules.load 2>/dev/null))
-BOARD_SYSTEM_KERNEL_MODULES := $(addprefix $(KERNEL_MODULE_DIR)/, $(notdir $(BOARD_SYSTEM_KERNEL_MODULES_LOAD)))
 
 # SEPolicy
 BOARD_VENDOR_SEPOLICY_DIRS += \
