@@ -2,6 +2,7 @@
 aaudio.hw_burst_min_usec=2000
 aaudio.mmap_exclusive_policy=2
 aaudio.mmap_policy=2
+audio.deep_buffer.media=true
 ro.audio.monitorRotation = true
 ro.audio.offload_wakelock=false
 ro.config.vc_call_vol_steps=7
